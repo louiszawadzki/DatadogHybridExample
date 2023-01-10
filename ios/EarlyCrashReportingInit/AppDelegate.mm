@@ -5,6 +5,8 @@
 #import <React/RCTRootView.h>
 
 #import <React/RCTAppSetupUtils.h>
+@import DatadogObjc;
+@import DatadogCrashReporting;
 
 #if RCT_NEW_ARCH_ENABLED
 #import <React/CoreModulesPlugins.h>
@@ -42,6 +44,16 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   _bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:bridge contextContainer:_contextContainer];
   bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
 #endif
+  DDConfigurationBuilder *builder = [DDConfiguration builderWithRumApplicationID:@"<rum_application_id>"
+                                                                     clientToken:@"<client_token>"
+                                                                     environment:@"<environment_name>"];
+  [builder setWithEndpoint:[DDEndpoint us1]];
+  [builder enableCrashReportingUsing: [DDCrashReportingPlugin new]];
+
+  [DDDatadog initializeWithAppContext:[DDAppContext new]
+                      trackingConsent:DDTrackingConsent.granted
+                        configuration:[builder build]];
+
 
   NSDictionary *initProps = [self prepareInitialProps];
   UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"EarlyCrashReportingInit", initProps);
