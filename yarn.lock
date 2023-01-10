@@ -776,6 +776,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@datadog/mobile-react-native@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@datadog/mobile-react-native/-/mobile-react-native-1.1.5.tgz#ffc9a49c0830243290ffd0e5cd4536d57eecf4f0"
+  integrity sha512-KjNf8QGG/887caS7hcJ8t5830oAMnQE7Oj4oAV/3FjI29pLXNgEJ+wgnGRoifP24AkNlo1vzEVXmwvkunYlqVw==
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
@@ -5516,6 +5521,11 @@ react-native-gradle-plugin@^0.70.3:
   version "0.70.3"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz#cbcf0619cbfbddaa9128701aa2d7b4145f9c4fc8"
   integrity sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==
+
+react-native-performance-limiter@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-performance-limiter/-/react-native-performance-limiter-0.1.1.tgz#38da4deac1144b9feefb2717258dcc73d9f25674"
+  integrity sha512-yuvnvkIl1D9dcyz2upEGjq7p5i/UjdMLwypNAcvuOL8fwyUQ4vHvILAdQf/fMTRiSLnnjAB8h+MW7l4ux7rNFQ==
 
 react-native@0.70.6:
   version "0.70.6"
