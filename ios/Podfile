@@ -26,6 +26,8 @@ target 'EarlyCrashReportingInit' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'DatadogSDKObjc'
+
   target 'EarlyCrashReportingInitTests' do
     inherit! :complete
     # Pods for testing

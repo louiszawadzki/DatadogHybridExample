@@ -5,6 +5,8 @@ PODS:
   - DatadogSDKCrashReporting (1.12.1):
     - DatadogSDK (= 1.12.1)
     - PLCrashReporter (~> 1.11.0)
+  - DatadogSDKObjc (1.12.1):
+    - DatadogSDK (= 1.12.1)
   - DatadogSDKReactNative (1.1.5):
     - DatadogSDK (~> 1.12.0)
     - DatadogSDKCrashReporting (~> 1.12.0)
@@ -386,6 +388,7 @@ PODS:
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
+  - DatadogSDKObjc
   - "DatadogSDKReactNative (from `../node_modules/@datadog/mobile-react-native`)"
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -452,6 +455,7 @@ SPEC REPOS:
     - CocoaAsyncSocket
     - DatadogSDK
     - DatadogSDKCrashReporting
+    - DatadogSDKObjc
     - Flipper
     - Flipper-Boost-iOSX
     - Flipper-DoubleConversion
@@ -547,6 +551,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DatadogSDK: 7bf8d43caa4a8b2ec633c261eb71155e71ed97d6
   DatadogSDKCrashReporting: b12615817e5dc5d0973334f02d6cf78b63bc8c20
+  DatadogSDKObjc: 0622b23af8b3421c0ae8de5504849d5349d5943a
   DatadogSDKReactNative: 09635f63561f9ec5264ab8c081676deb3715aaa3
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 48289402952f4f7a4e235de70a9a590aa0b79ef4
@@ -598,6 +603,6 @@ SPEC CHECKSUMS:
   Yoga: 99caf8d5ab45e9d637ee6e0174ec16fbbb01bcfc
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 1e2c2d1bf4f5d6767fb6acdfcb8ab1b6a9cbbc03
+PODFILE CHECKSUM: 707e643dcca219d27f30718e608e0f54d362ce08
 
 COCOAPODS: 1.11.3
