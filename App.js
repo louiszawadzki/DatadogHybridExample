@@ -9,49 +9,41 @@
 import React from 'react';
 import type {Node} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
 
+import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+  DdRum,
+  DdSdkReactNative,
+  DdSdkReactNativeConfiguration,
+} from '@datadog/mobile-react-native';
+import {crashNativeMainThread} from 'react-native-performance-limiter';
 
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+const startDatadogRNSdk = () => {
+  const datadogConfig = new DdSdkReactNativeConfiguration(
+    'appId',
+    'env',
+    'token',
+    true,
+    true,
+    true,
   );
+
+  DdSdkReactNative.initialize(datadogConfig).then(() => {
+    DdRum.startView('main', 'Main');
+  });
+};
+
+const crashApp = async () => {
+  await DdRum.startView('main', 'Main');
+  crashNativeMainThread();
 };
 
 const App: () => Node = () => {
@@ -75,20 +67,8 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Button title="Start Datadog RN SDK" onPress={startDatadogRNSdk} />
+          <Button title="Crash app" onPress={crashApp} />
         </View>
       </ScrollView>
     </SafeAreaView>
